@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    platform: mysql
+    username: root
+    password: qwert123456
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://118.24.49.156:3306/chenguoyu?characterEncoding=utf8&useSSL=true
+  redis:
+    database: 0
+    host: 118.24.49.156
+    port: 6379
+    password: root123
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait:
+        min-idle: 0
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.chenguoyu.common.entity  # 注意：对应实体类的路径
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+logging:
+  level:
+    com:
+      chenguoyu:
+        mapper: debug
